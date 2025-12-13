@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANARTY</title>
+    <link rel="icon" href="tenna.gif" type="image/gif">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: radial-gradient(circle, rgba(157, 63, 251, 1) 0%, rgba(2, 2, 110, 1) 100%);
+        }
+
+        #zamarz {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(6px);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .okienko {
+            width: 30%;
+            height: 60%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 32, 46, 1) 35%, rgba(38, 51, 51, 1) 100%);
+            border-radius: 10%;
+            border: 3px solid rebeccapurple;
+        }
+
+        h1 {
+            color: blueviolet;
+            text-align: center;
+            padding-top: 20%;
+            font-size: 80px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-shadow: 2px black;
+        }
+
+        .małeh1 {
+            color: blueviolet;
+            text-align: center;
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-shadow: 2px black;
+            font-weight: bolder;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(48, 47, 47, 0.6);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.5s ease, backdrop-filter 0.5s ease;
+        }
+
+        header.normal {
+            background: rgba(48, 47, 47, 1);
+            backdrop-filter: none;
+        }
+
+        header p {
+            margin: 0;
+            font-weight: bold;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+            color: bisque;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAnim 1s forwards;
+        }
+
+        .fade-in-delayed {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAnim 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        .fade-in-okienko {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInAnimOkienko 1s forwards;
+        }
+
+        @keyframes fadeInAnim {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInAnimOkienko {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .srodek {
+            margin-top: 10%;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 100px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: whitesmoke;
+        }
+
+        .bionapis {
+            margin-top: 5%;
+            margin-left: 2%;
+            font-weight: bolder;
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: whitesmoke;
+        }
+
+        .poleFan {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .fanart {
+            text-align: center;
+        }
+
+        .fanart img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .fanart p {
+            color: white;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .dc-global {
+            text-align: center;
+            font-size: 70px;
+            font-weight: bold;
+            color: yellow;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAnim 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        @media (max-width: 600px) {
+            .fanart img {
+                width: 150px;
+            }
+
+            .fanart p {
+                font-size: 18px;
+            }
+
+            .srodek {
+                font-size: 50px;
+                margin-top: 15%;
+            }
+
+            .bionapis {
+                font-size: 20px;
+            }
+
+            .dc-global {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="zamarz">
+        <div class="okienko fade-in-okienko">
+            <h1>FANARTY</h1>
+            <div class="małeh1">WIDZÓW</div>
+        </div>
+    </div>
+    <audio id="sound" src="muzykaa.mp3"></audio>
+
+    <header>
+        <div class="omnie">
+            <p><a href="index.html">O MNIE</a></p>
+        </div>
+        <div class="coto">
+            <p><a>FANARTY</a></p>
+        </div>
+        <div class="dc">
+            <p><a href="https://discord.gg/ssfhmSMzcx">DISCORD</a></p>
+        </div>
+    </header>
+
+    <div class="srodek">FANARTY</div>
+
+    <div class="poleFan">
+        <div class="fanart">
+            <img src="muran.jpg" alt="muran">
+            <p>@MURAN</p>
+        </div>
+        <div class="fanart">
+            <img src="bobber.png" alt="bober">
+            <p>@BOBER</p>
+        </div>
+        <div class="fanart">
+            <img src="temmie.png" alt="temmie">
+            <p>@TEMMIE</p>
+        </div>
+        <div class="fanart">
+            <img src="zjarany.png" alt="zjarany">
+            <p>@ZJARANY</p>
+        </div>
+    </div>
+
+    <div class="dc-global">WIĘCEJ NA DC</div>
+
+    <script>
+        const text = "  FANARTY  ";
+        let i = 0;
+        setInterval(() => {
+            document.title = text.slice(i) + text.slice(0, i);
+            i = (i + 1) % text.length;
+        }, 100);
+
+        const overlay = document.getElementById("zamarz");
+        const sound = document.getElementById("sound");
+        overlay.addEventListener("click", () => {
+            sound.currentTime = 0;
+            sound.loop = true;
+            sound.volume = 1;
+            sound.play().catch(err => {
+                console.log("Nie można odtworzyć dźwięku:", err);
+            });
+
+            overlay.style.display = "none";
+
+            document.querySelector("header").classList.add("normal");
+
+            document.querySelector(".srodek").classList.add("fade-in");
+            document.querySelector(".bionapis")?.classList.add("fade-in-delayed");
+            document.querySelector(".okienko").classList.add("fade-in-okienko");
+            document.querySelector(".dc-global").classList.add("fade-in-delayed");
+        });
+    </script>
+</body>
+
+</html>
