@@ -8,158 +8,289 @@
     <link rel="icon" href="tenna.gif" type="image/gif">
 
     <style>
-        html,
-        body {
-            margin: 0;
-            height: 100%;
-            overflow-x: hidden;
-        }
+      html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
 
-        body {
-            background: radial-gradient(circle, rgba(157, 63, 251, 1) 0%, rgba(2, 2, 110, 1) 100%);
-        }
+body {
+    background: radial-gradient(circle, rgba(157, 63, 251, 1) 0%, rgba(2, 2, 110, 1) 100%);
+}
 
-        #zamarz {
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(6px);
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
+#zamarz {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
 
-        .okienko {
-            width: 30%;
-            height: 60%;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 32, 46, 1) 35%, rgba(38, 51, 51, 1) 100%);
-            border-radius: 10%;
-            border: 3px solid rebeccapurple;
-        }
+.okienko {
+    width: 30%;
+    height: 60%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(32, 32, 46, 1) 35%, rgba(38, 51, 51, 1) 100%);
+    border-radius: 10%;
+    border: 3px solid rebeccapurple;
+}
 
-        h1 {
-            color: blueviolet;
-            text-align: center;
-            padding-top: 20%;
-            font-size: 80px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-shadow: 2px black;
-        }
+h1 {
+    color: blueviolet;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
 
-        .małeh1 {
-            color: blueviolet;
-            text-align: center;
-            font-size: 50px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-shadow: 2px black;
-            font-weight: bolder;
-        }
+.małeh1 {
+    color: blueviolet;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    font-weight: bolder;
+}
 
-        h2 {
-            color: rgb(106, 105, 107);
-            text-align: center;
-            font-size: 20px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-shadow: 2px rgb(155, 155, 155);
-        }
+h2 {
+    color: rgb(106, 105, 107);
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-        .prof {
-            border-radius: 100%;
-            width: 30%;
-            height: 30%;
-        }
+.prof {
+    border-radius: 100%;
+    width: 30%;
+    height: auto;
+}
 
-        /* header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background: rgba(48, 47, 47, 0.6);
-            backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            z-index: 1000;
-            transition: background 0.5s ease, backdrop-filter 0.5s ease;
-        }
+/* HEADER */
 
-        header.normal {
-            background: rgba(48, 47, 47, 1);
-            backdrop-filter: none;
-        }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(48, 47, 47, 0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    transition: background .5s ease, backdrop-filter .5s ease;
+}
 
-        header p {
-            margin: 0;
-            font-weight: bold;
-            color: white;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+header.normal {
+    background: rgba(48, 47, 47, 1);
+    backdrop-filter: none;
+}
 
-        header a {
-            color: white;
-            text-decoration: none;
-        }
+header p {
+    margin: 0;
+    font-weight: bold;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-        header a:hover {
-            text-decoration: underline;
-            color: bisque;
-        }
+header a {
+    color: white;
+    text-decoration: none;
+}
 
-        /* animacja pojawiania się */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInAnim 1s forwards;
-        }
+header a:hover {
+    text-decoration: underline;
+    color: bisque;
+}
 
-        .fade-in-delayed {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInAnim 1s forwards;
-            animation-delay: 0.5s;
-        }
+/* ANIMACJE */
 
-        .fade-in-okienko {
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInAnimOkienko 1s forwards;
-        }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnim 1s forwards;
+}
 
-        @keyframes fadeInAnim {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.fade-in-delayed {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnim 1s forwards;
+    animation-delay: .5s;
+}
 
-        @keyframes fadeInAnimOkienko {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.fade-in-okienko {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInAnimOkienko 1s forwards;
+}
 
-        .srodek {
-            margin-top: 10%;
-            text-align: center;
-            font-weight: bolder;
-            font-size: 100px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: whitesmoke;
-        }
+@keyframes fadeInAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .bionapis {
-            margin-top: 5%;
-            margin-left: 2%;
-            font-weight: bolder;
-            font-size: 40px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: whitesmoke;
-        }
+@keyframes fadeInAnimOkienko {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GŁÓWNA ZAWARTOŚĆ */
+
+.srodek {
+    margin-top: 10%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+}
+
+.bionapis {
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 5%;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+span {
+    color: violet;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .okienko {
+        width: 60%;
+        height: auto;
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+    h1 {
+        font-size: 60px;
+        padding-top: 10px;
+    }
+
+    .małeh1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .srodek {
+        margin-top: 100px;
+        font-size: 70px;
+    }
+
+    .bionapis {
+        font-size: 30px;
+        margin: 30px;
+    }
+
+    .prof {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    header {
+        height: 60px;
+        justify-content: space-evenly;
+        padding: 0 10px;
+    }
+
+    header p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .okienko {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+        padding-top: 0;
+    }
+
+    .małeh1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .srodek {
+        margin-top: 90px;
+        font-size: 42px;
+        padding: 0 10px;
+    }
+
+    .bionapis {
+        font-size: 20px;
+        margin: 20px 15px 40px 15px;
+        line-height: 1.6;
+    }
+
+    .prof {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    header p {
+        font-size: 12px;
+    }
+
+    .okienko {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .małeh1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .srodek {
+        font-size: 34px;
+    }
+
+    .bionapis {
+        font-size: 18px;
+    }
+}
+
 
         span {
             color: violet;
@@ -191,7 +322,7 @@
     </header>
 
     <div class="srodek">WHO AM I?</div>
-    <div class="bionapis">HEJKA TU GOMI INACZEJ TEŻ ZWANY "<span>CUBE</span>","<span>ŚMIESZEK</span>" DLA ZNAJOMYCH "<span>KACPER</span>". JESTEM Z 2009 ROKU (WIEK TO TYLKO LICZBA CO NIE ?), OBECNIE UCZE SIĘ PROGRAMOWANIA, RYSOWANIA, NAGRYWANIA / STRIMINGU NA <span>YOUTUBE</span>. JEŚLI CIĘ ZACIEKAWIŁEM TO DOBRZE, U MNIE ZNAJDZIESZ KONTENT Z GIER, DUBBINGÓW NA FILMACH, A NA STRIMACH ROZMAWIAM Z WIDZAMI. <br>
+    <div class="bionapis">HEJKA TU GOMI INACZEJ TEŻ ZWANY "<span>CUBE</span>","<span>ŚMIESZEK</span>" DLA ZNAJOMYCH "<span>SZYMEK</span>","<span>KACPER</span>","<span>MAREK"</span>,"<span>ŁUKASZ"</span><span>(zależy od ksywki która powstała przez śmieszne akcje :P)</span>. JESTEM Z 2009 ROKU (WIEK TO TYLKO LICZBA CO NIE ?), OBECNIE UCZE SIĘ PROGRAMOWANIA, RYSOWANIA, NAGRYWANIA / STRIMINGU NA <span>YOUTUBE</span>. JEŚLI CIĘ ZACIEKAWIŁEM TO DOBRZE, U MNIE ZNAJDZIESZ KONTENT Z GIER, DUBBINGÓW NA FILMACH, A NA STRIMACH ROZMAWIAM Z WIDZAMI. <br>
         <span>Z ŻYCIA PRYWATNEGO</span>. STARAM SIĘ BYĆ MIŁY DLA WSZYSTKICH, ORAZ LOJALNY.<br>
         <span>JAK MIEĆ Z MNĄ KONTAKT NA PV ?</span>. PISZ NORMALNIE, A JA ZATRZYMAM TO W TAJEMNICY, ORAZ NIE BÓJ SIĘ ZAGADAĆ JAK CZEGOŚ POTRZEBUJESZ (POSTARAM SIĘ POMÓC).<br>
         TERAZ SOBIE BOMBE CHILLUJ DO MUZYKI JAK CHCESZ :P
